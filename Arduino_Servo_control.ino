@@ -7,10 +7,8 @@ long int servo_angles[6] {};
 
 // robot arm measurements are in mm (in actual)
 constexpr long int BASE_HEIGHT = 75;
-constexpr long int AB = 85;
-constexpr long int BC = 160;
-constexpr long int P = AB;
-constexpr long int Q = BC;
+constexpr long int P = 85;
+constexpr long int Q = 160;
 
 
 constexpr long int servo_ports[] = {3, 5, 6, 9, 10, 11};
