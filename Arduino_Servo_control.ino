@@ -83,15 +83,6 @@ double xyz_to_t3(const long int x, const long int y, const long int z)
   }
 }
 
-long int limit_value(const long int value, const long int min_value = -90, const long int max_value = 90)
-{
-  if (value < min_value)
-    return min_value;
-  else if (value > max_value)
-    return max_value;
-  return value;
-}
-
 void setup() {
   for (long int i = 0; i < 6; ++i)
   {
@@ -142,7 +133,7 @@ void loop() {
   servo_angles[3] = map(pot_values[3], 0, 1023, 0, 180);
 
   long int end_effector_target_angle = map(pot_values[4], 0, 1023, -90, 90);
-  servo_angles[4] = limit_value(end_effector_target_angle + t2 - t3);
+  servo_angles[4] = constrain(end_effector_target_angle + t2 - t3, -90, 90);
   servo_angles[4] = map(servo_angles[4], -90, 90, 0, 180);
   servo_angles[5] = map(pot_values[5], 0, 1023, 110, 150);
 
